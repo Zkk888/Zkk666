@@ -1,2 +1,44 @@
+#include<iostream>
+using namespace std;
 
+class simpleCircle
+{
+public:
+      simpleCircle();
+      simpleCircle(int);           //形参可在实现函数时给出
+      simpleCircle(const simpleCircle&);           //常引用
+      ~simpleCircle(){}
+      void setRedius(int);
+      int getRedius() const;  //常引用
+private:
+      int *itsRedius;
+};
+simpleCircle::simpleCircle()
+{
+      itsRedius= new int(5);
+}
+simpleCircle::simpleCircle(int redius)
+{
+      itsRedius= new int(redius);
+}
+simpleCircle::simpleCircle(const simpleCircle& oth)
+{
+      int Red= oth.getRedius();
+      itsRedius= new int(Red);
+}
+void simpleCircle::setRedius(int Red)
+{
+      itsRedius= new int(Red);
+}
+int simpleCircle::getRedius() const
+{
+      return *itsRedius;      //非静态数据成员直接调用
+}
+int main()
+{
+      simpleCircle Circle,CircleTwo(10);
+      cout<<"CircleOne="<<Circle.getRedius()<<"\n";
+      cout<<"CircleTwo="<<CircleTwo.getRedius()<<"\n";
+      return 0;
+}
 
