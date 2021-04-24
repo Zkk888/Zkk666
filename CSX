@@ -86,3 +86,84 @@ void main()
       fclose(f);
 
 }
+
+
+#include<stdio.h>
+
+struct student                //基本信息
+{
+      int score[6];
+      float Ave;
+      float Cre;
+      int XH;
+      char name[20];
+}stu[1000];
+struct student tmp;
+char course[6][20]={"软件技术导论:","C语言程序设计:","高等数学:","体育:","英语:","中国革命史:"};
+char course1[6][20]={"软技\t","C语言\t","高数\t","体育\t","英语\t","革命史\t"};
+void main()
+{
+      int n;
+      int i;
+      int j;
+      int Cred[1000][6];
+
+      printf("input the number of students: ");
+      scanf("%d",&n);
+      for(i=0;i<n;i++){
+            printf("***==input the %dth student information==***\n",i+1);
+            printf("请输入姓名:");
+            scanf("%s",&stu[i].name);
+            printf("请输入学号:");
+            scanf("%d",&stu[i].XH);
+            for(j=0;j<6;j++){
+                  printf("%s",course[j]);
+                  scanf("%d",&stu[i].score[j]);
+                  stu[i].Ave+=stu[i].score[j];
+            }
+            for(j=0;j<6;j++){
+                  if(stu[i].score[j]>60){
+                        Cred[i][j]=1;
+                  }
+                  if(stu[i].score[j]<=60){
+                        Cred[i][j]=0;
+                  }
+            }
+            stu[i].Ave=stu[i].Ave/6;
+      }
+      for(i=0;i<n;i++){
+            stu[i].Cre= Cred[i][0]*2+Cred[i][1]*3.5+Cred[i][2]*5+Cred[i][3]*2+Cred[i][4]*3+Cred[i][5]*2;
+      }
+      for(i=0;i<n-1;i++){
+                  for(j=0;j<n-i-1;j++){
+                        if(stu[j].Cre<stu[j+1].Cre){
+                  tmp=stu[j];
+                  stu[j]=stu[j+1];
+                  stu[j+1]=tmp;
+            }
+                        if(stu[j].Cre==stu[j+1].Cre){
+                              if(stu[j].Ave<stu[j+1].Ave){
+                                    tmp=stu[j];
+                                    stu[j]=stu[j+1];
+                                    stu[j+1]=tmp;
+                              }
+                        }
+                  }
+      }
+      printf("-------------------------------------------------------------------------------\n");
+      printf("姓名\t学号\t学分\t平均分\t");
+      for(i=0;i<6;i++){
+            printf("%s",course1[i]);
+      }
+      printf("\n");
+      printf("-------------------------------------------------------------------------------\n");
+      for(i=0;i<n;i++){
+            printf("%s\t%d\t%.1f\t%.1f\t",stu[i].name,stu[i].XH,stu[i].Cre,stu[i].Ave);
+            for(j=0;j<6;j++){
+                  printf("%d\t",stu[i].score[j]);
+            }
+            printf("\n");
+      }
+      printf("-------------------------------------------------------------------------------");
+
+}
