@@ -1,0 +1,88 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+FILE *fp;
+FILE *f;
+struct Student_Info1
+{
+      char Xu[10];    //序号
+      char No[10];    //学号
+      char Name[20];  //姓名
+      float Credit;   //学分
+};
+struct Student_Info2
+{
+      float Math;
+      float PE;
+      float His;
+      float Sof;
+      float Eng;
+      float C;
+};
+typedef struct Student_Info1 STUDENT1;
+typedef struct Student_Info2 STUDENT2;
+void main()
+{
+      int j;
+      int i;
+      int num;
+      int len;
+      float Ave;
+      char *data;
+      STUDENT1 *p;
+      STUDENT2 *q;
+      printf("input the number of the students: ");
+      scanf("%d",&num);
+      for(i=0;i<num;++i){
+            p= (STUDENT1 *)malloc(sizeof(STUDENT1));
+            q= (STUDENT2 *)malloc(sizeof(STUDENT2));
+            if(p==NULL){
+                  return NULL;
+            }
+            if(q==NULL){
+                  return NULL;
+            }
+            printf("\n====input %dth student's informaion===\n",i+1);
+            printf("序号: ");
+            scanf("%s",p->Xu);
+            printf("学号: ");
+            scanf("%s",p->No);
+            printf("姓名: ");
+            scanf("%s",p->Name);
+            printf("学分: ");
+            scanf("%f",&p->Credit);
+            printf("高数: ");
+            scanf("%f",&q->Math);
+            printf("体育: ");
+            scanf("%f",&q->PE);
+            printf("历史: ");
+            scanf("%f",&q->His);
+            printf("软件: ");
+            scanf("%f",&q->Sof);
+            printf("英语: ");
+            scanf("%f",&q->Eng);
+            printf("C语言: ");
+            scanf("%f",&q->C);
+            Ave=(q->Math+q->PE+q->His+q->Sof+q->Eng+q->C)/6;
+            //printf("%s %s %s %.1f %.1f %.1f %.1f %.1f %.1f %.1f",p->Xu,p->No,p->Name,p->Credit,q->Math,q->PE,q->His,q->Sof,q->Eng,q->C);
+            fp=fopen("D:\\SX.txt","a+");
+            fprintf(fp,"%s\t%s\t%s\t%.1f\t%.1f\t%.1f\t%.1f\t%.1f\t%.1f\t%.1f\t%.1f\n",
+                    p->Xu,p->No,p->Name,p->Credit,q->Math,q->PE,q->His,
+                    q->Sof,q->Eng,q->C,Ave);
+      free(p);
+      free(q);
+      fclose(fp);
+      }
+      f=fopen("D:\\SX.txt","rb");
+      fseek(f,0,SEEK_END);
+      len=ftell(f);
+      fseek(f,0,SEEK_SET);
+      data=(char*)malloc(len+1);
+      fread(data,1,len,f);
+      fclose(f);
+      printf("序号\t学号\t姓名\t学分\t高数\t体育\t近代史\t软技\t大英\tC语言\t平均分\n");
+      printf("%s",data);
+      free(data);
+      fclose(f);
+
+}
