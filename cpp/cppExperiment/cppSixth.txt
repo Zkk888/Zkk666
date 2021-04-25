@@ -6,7 +6,7 @@ class simpleCircle
 public:
       simpleCircle();
       simpleCircle(int);           //形参可在实现函数时给出
-      simpleCircle(const simpleCircle&);           //常引用
+      simpleCircle(const simpleCircle&);           //常引用  另一个对象的引用别名可在实现函数时给出
       ~simpleCircle(){}
       void setRedius(int);
       int getRedius() const;  //常引用

@@ -1,0 +1,68 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+int main()
+{
+      int i,j;
+      int a,b;
+      int sumA=0;                           //注意初始化
+                                            //指针数组     行指针     动态创建多维数组
+      while(cin>>a>>b){                  //while的用法 最后可以break
+            int** aa= new int*[a];                  //delete[]
+                                                       //for(i=0;i<n;i++){
+                                                     //       delete[] aa[i]
+                                                    //   }
+            for(i=0;i<a;i++){
+                  aa[i]= new int[b];
+            }
+            for(i=0;i<a;i++){
+                  for(j=0;j<b;j++){
+                        cin>>aa[i][j];
+                  }
+            }
+            for(i=0;i<a;i++){
+                  for(j=0;j<b;j++){
+                        sumA+=aa[i][j];
+                  }
+                  cout<<sumA<<"\n";
+                  sumA= 0;
+            }
+
+      }
+}
+
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+int main()
+{
+      string p[7]= {"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
+      int n;
+      int j;
+      int i;
+      int sum= 0;                     //  sum的使用  （都不符合条件的条件）
+      string pp[100];
+      while(cin>>n){
+            for(i=0;i<n;i++){
+                  cin>>pp[i];
+            }
+            for(i=0;i<n;i++){
+                  for(j=0;j<7;j++){
+                        if(pp[i]==p[j]){
+                              cout<<j+1<<"\n";
+                        }
+                        if(pp[i]!=p[j]){
+                              sum+=1;
+                        }
+
+                        if(sum==7){
+                              cout<<"-1"<<"\n";
+                        }
+                        }
+                        sum=0;                         //一个小循环结束之后
+                  }
+            }
+}
