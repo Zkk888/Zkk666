@@ -1,0 +1,129 @@
+public class SingleLinkedListDemo {
+    public SingleLinkedListDemo() {
+    }
+
+    public static void main(String[] args) {
+        class SingleLinkedList {
+            private HeroNode head = new HeroNode(0, "", "");
+
+            SingleLinkedList() {
+            }
+
+            public void add(HeroNode heroNode) {
+                HeroNode temp;
+                for(temp = this.head; temp.next != null; temp = temp.next) {
+                }
+
+                temp.next = heroNode;
+            }
+
+            public void addByOrder(HeroNode heroNode) {
+                HeroNode temp = this.head;
+
+                boolean flag;
+                for(flag = false; temp.next != null && temp.next.no <= heroNode.no; temp = temp.next) {
+                    if (temp.next.no == heroNode.no) {
+                        flag = true;
+                        break;
+                    }
+                }
+
+                if (flag) {
+                    System.out.printf("准备插入的编号 %d 已经存在了，不能插入\n", heroNode.no);
+                } else {
+                    heroNode.next = temp.next;
+                    temp.next = heroNode;
+                }
+
+            }
+
+            public void updata(HeroNode newHeroNode) {
+                if (this.head.next == null) {
+                    System.out.println("链表空");
+                }
+
+                HeroNode temp = this.head;
+                boolean flag = false;
+
+                while(true) {
+                    if (temp == null) {
+                        System.out.println("遍历完成");
+                        break;
+                    }
+
+                    if (temp.no == newHeroNode.no) {
+                        flag = true;
+                        break;
+                    }
+
+                    temp = temp.next;
+                }
+
+                if (flag) {
+                    temp.name = newHeroNode.name;
+                    temp.nickname = newHeroNode.nickname;
+                } else {
+                    System.out.printf("没找到编号为%d的节点", newHeroNode);
+                }
+
+            }
+
+            public void del(int no) {
+                HeroNode temp = this.head;
+                boolean flag = false;
+
+                while(true) {
+                    if (temp.next == null) {
+                        System.out.println("没找到");
+                        break;
+                    }
+
+                    if (temp.next.no == no) {
+                        flag = true;
+                        break;
+                    }
+
+                    temp = temp.next;
+                    if (flag) {
+                        temp.next = temp.next.next;
+                    } else {
+                        System.out.printf("编号为%d的节点不存在", no);
+                    }
+                }
+
+            }
+
+            public void showlist() {
+                HeroNode temp = this.head.next;
+                if (this.head.next == null) {
+                    System.out.println("链表为空");
+                }
+
+                while(temp != null) {
+                    System.out.println(temp);
+                    temp = temp.next;
+                }
+
+            }
+        }
+
+
+        class HeroNode {
+            public int no;
+            public String name;
+            public String nickname;
+            public HeroNode next;
+
+            public HeroNode(int no, String name, String nickname) {
+                this.no = no;
+                this.nickname = nickname;
+                this.name = name;
+            }
+
+            public String toString() {
+                return "HereNode[no=" + this.no + ",name=" + this.name + ",nickname=" + this.nickname + "]";
+            }
+        }
+
+    }
+}

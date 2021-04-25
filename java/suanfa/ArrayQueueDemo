@@ -1,0 +1,66 @@
+public class ArrayQueueDemo {
+    public ArrayQueueDemo() {
+    }
+
+    public static void main(String[] args) {
+        class ArrayQueue {
+            private int maxSize;
+            private int front;
+            private int rear;
+            private int[] arr;
+
+            public ArrayQueue(int arrMaxSize) {
+                this.maxSize = arrMaxSize;
+                this.arr = new int[this.maxSize];
+                this.front = -1;
+                this.rear = -1;
+            }
+
+            public boolean isFull() {
+                return this.rear == this.maxSize - 1;
+            }
+
+            public boolean isEmpty() {
+                return this.front == this.rear;
+            }
+
+            public void addQueue(int n) {
+                if (this.isFull()) {
+                    System.out.println("队满不能添加数据");
+                } else {
+                    ++this.rear;
+                    this.arr[this.rear] = n;
+                }
+            }
+
+            public int getQueue() {
+                if (this.isEmpty()) {
+                    throw new RuntimeException("队列空，不能取数据");
+                } else {
+                    ++this.front;
+                    return this.arr[this.front];
+                }
+            }
+
+            public void showQueue() {
+                if (this.isEmpty()) {
+                    System.out.println("队列空，没有数据");
+                } else {
+                    for(int n = 0; n < this.arr.length; ++n) {
+                        System.out.printf("arr[%d]=%d\n", n, this.arr[n]);
+                    }
+
+                }
+            }
+
+            public int headQueue() {
+                if (this.isEmpty()) {
+                    throw new RuntimeException("队列空，没有头数据");
+                } else {
+                    return this.arr[this.front + 1];
+                }
+            }
+        }
+
+    }
+}

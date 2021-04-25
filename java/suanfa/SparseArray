@@ -1,0 +1,92 @@
+public class SparseArray {
+    public SparseArray() {
+    }
+
+    public static void main(String[] args) {
+        int[][] chessArray1 = new int[11][11];
+        chessArray1[0][1] = 1;
+        chessArray1[0][2] = 2;
+        chessArray1[5][5] = 2;
+        System.out.println("原始的数组为");
+        int[][] var2 = chessArray1;
+        int i = chessArray1.length;
+
+        int count;
+        int var7;
+        int var8;
+        for(count = 0; count < i; ++count) {
+            int[] row = var2[count];
+            int[] var6 = row;
+            var7 = row.length;
+
+            for(var8 = 0; var8 < var7; ++var8) {
+                int data = var6[var8];
+                System.out.printf("%d\t", data);
+            }
+
+            System.out.println();
+        }
+
+        int sum = 0;
+
+        for(i = 0; i < 11; ++i) {
+            for(count = 0; count < 11; ++count) {
+                if (chessArray1[i][count] != 0) {
+                    ++sum;
+                }
+            }
+        }
+
+        int[][] sparesArr = new int[sum + 1][3];
+        sparesArr[0][0] = 11;
+        sparesArr[0][1] = 11;
+        sparesArr[0][2] = sum;
+        count = 0;
+
+        int i;
+        int i;
+        for(i = 0; i < 11; ++i) {
+            for(i = 0; i < 11; ++i) {
+                if (chessArray1[i][i] != 0) {
+                    ++count;
+                    sparesArr[count][0] = i;
+                    sparesArr[count][1] = i;
+                    sparesArr[count][2] = chessArray1[i][i];
+                }
+            }
+        }
+
+        System.out.println();
+        System.out.println("得到的稀疏数组为");
+
+        for(i = 0; i < sparesArr.length; ++i) {
+            System.out.printf("%d\t%d\t%d\t\n", sparesArr[i][0], sparesArr[i][1], sparesArr[i][2]);
+        }
+
+        System.out.println();
+        int[][] chessArr2 = new int[sparesArr[0][0]][sparesArr[0][1]];
+
+        for(i = 1; i < sparesArr.length; ++i) {
+            chessArr2[sparesArr[i][1]][sparesArr[i][2]] = sparesArr[i][2];
+        }
+
+        System.out.println();
+        System.out.println("恢复后的数组");
+        int[][] var19 = chessArr2;
+        var7 = chessArr2.length;
+
+        for(var8 = 0; var8 < var7; ++var8) {
+            int[] row = var19[var8];
+            int[] var10 = row;
+            int var11 = row.length;
+
+            for(int var12 = 0; var12 < var11; ++var12) {
+                int data = var10[var12];
+                System.out.printf("%d\t", data);
+            }
+
+            System.out.println();
+        }
+
+    }
+}

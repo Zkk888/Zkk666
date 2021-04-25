@@ -1,0 +1,69 @@
+public class circleArrayQueue {
+    public circleArrayQueue() {
+    }
+
+    public static void main(String[] args) {
+        class CircleArray {
+            private int maxSize;
+            private int front;
+            private int rear;
+            private int[] arr;
+
+            public CircleArray(int arrMaxSize) {
+                this.maxSize = arrMaxSize;
+                this.arr = new int[this.maxSize];
+            }
+
+            public boolean isFull() {
+                return (this.rear + 1) % this.maxSize == this.front;
+            }
+
+            public boolean isEmpty() {
+                return this.rear == this.front;
+            }
+
+            public void addQueue(int n) {
+                if (this.isFull()) {
+                    System.out.println("队满，无法添加数据");
+                } else {
+                    this.arr[this.rear] = n;
+                    this.rear = (this.rear + 1) % this.maxSize;
+                }
+            }
+
+            public int getheadQueue() {
+                if (this.isEmpty()) {
+                    throw new RuntimeException("队空，无法取数据");
+                } else {
+                    int value = this.arr[this.front];
+                    this.front = (this.front + 1) % this.maxSize;
+                    return value;
+                }
+            }
+
+            public int size() {
+                return (this.rear + this.maxSize - this.front) % this.maxSize;
+            }
+
+            public void showQueue() {
+                if (this.isEmpty()) {
+                    throw new RuntimeException("队空");
+                } else {
+                    for(int i = this.front; i < this.front + this.size(); ++i) {
+                        System.out.printf("arr[%d]=%d", i % this.maxSize, this.arr[i % this.maxSize]);
+                    }
+
+                }
+            }
+
+            public int headQueue() {
+                if (this.isEmpty()) {
+                    throw new RuntimeException("队空");
+                } else {
+                    return this.arr[this.front];
+                }
+            }
+        }
+
+    }
+}

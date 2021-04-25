@@ -1,0 +1,79 @@
+public class CircleSingleLinkedListDemo {
+    public CircleSingleLinkedListDemo() {
+    }
+
+    public static void main(String[] args) {
+        class CircleSingleLinkedList {
+            private Boy first = null;
+
+            CircleSingleLinkedList() {
+            }
+
+            public void addBoy(int nums) {
+                if (nums < 1) {
+                    System.out.println("nums的值不正确");
+                } else {
+                    Boy curBoy = null;
+
+                    for(int i = 1; i <= nums; ++i) {
+                        Boy boy = new Boy(i);
+                        if (i == 1) {
+                            this.first = boy;
+                            this.first.setNext(this.first);
+                            curBoy = this.first;
+                        } else {
+                            curBoy.setNext(boy);
+                            boy.setNext(this.first);
+                            curBoy = boy;
+                        }
+                    }
+
+                }
+            }
+
+            public void showBoy() {
+                if (this.first == null) {
+                    System.out.println("没有任何节点");
+                } else {
+                    Boy culboy = this.first;
+
+                    while(true) {
+                        System.out.printf("小孩的编号是%d", culboy.getNo());
+                        if (culboy.getNext() == this.first) {
+                            return;
+                        }
+
+                        culboy = culboy.getNext();
+                    }
+                }
+            }
+        }
+
+
+        class Boy {
+            private int no;
+            private Boy next;
+
+            private Boy(int no) {
+                this.no = no;
+            }
+
+            private int getNo() {
+                return this.no;
+            }
+
+            private void setNo() {
+                this.no = this.no;
+            }
+
+            public Boy getNext() {
+                return this.next;
+            }
+
+            public void setNext(Boy next) {
+                this.next = next;
+            }
+        }
+
+    }
+}
