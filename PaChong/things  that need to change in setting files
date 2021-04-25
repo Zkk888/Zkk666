@@ -1,0 +1,5 @@
+1.ROBOTSTXT_OBEY = False
+     LOG_LEVEL = 'ERROR'
+2.--nolog
+3.修改USER_AGENT
+4.手动取消管道pipeline注释

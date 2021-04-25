@@ -1,0 +1,73 @@
+数值运算函数
+1.abs(x)
+2.divmod(X,Y)
+3.pow(x,y[,z])
+4.round(X[,ndigits])
+5.max/min(a,b,c,…)
+字符串处理函数
+1.len(x)
+2.str(x)
+3.chr(x)
+4.ord(x)
+5.hex(x)
+6.oct(x)
+字符串处理方法
+1.str.lower()
+2.str.upper()
+3.str.split(sep=None) 列表
+4.str.count(sub)
+5.str.center(width,fillchar)
+6.str.replace(old,new)
+7.str.strip(chars)
+8.str.join(iter)
+数字类型转换
+Type(x)
+集合类型运算 用于去重，使用任何组合数据类型
+S-T
+S&T
+S^T
+S|T
+len(S)
+X in S
+X not in S
+集合处理方法
+S.add(x)
+S.remove(x)
+S.clear()
+序列类型运算
+X in s
+X not in s
+S + t 连接序列
+S * n
+S[i]
+S[i:j]  S[i:j:k]
+Len(s)
+Min/max(s)
+S.index(X)
+S.count(X)
+List(X)
+列表操作方法
+Ls.append(X)
+Ls.insert(i,x)
+Ls.clear()
+Ls.pop(i)
+Ls.remove(X)
+Ls.reverse()
+Ls.copy()       生成一个新列表
+字典操作函数
+Len(d)
+Min/max(d)  取键
+Dict()
+字典操作方法
+D.keys()
+D.values()
+D.items()
+D.get(key,default)
+D.pop(key,default)
+D.popitem()
+D.clear()
+
+
+
+
+

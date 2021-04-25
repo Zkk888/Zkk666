@@ -1,0 +1,4 @@
+1.xpath：scrapy中返回的列表元素是Selector类型的对象
+   用.extract()取其中的data下的字符串
+1.1 xpath整合用|
+2.自带cookie的session，异步获取响应数据
