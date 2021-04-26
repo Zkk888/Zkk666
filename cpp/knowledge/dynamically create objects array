@@ -1,0 +1,11 @@
+#include<iostream>
+#include<cstdlib>
+
+using namespace std;
+
+//动态创建对象数组（数组元素是对象）
+class Student
+Student* stu;
+stu= (Student*)malloc(N*sizeof(Student))  //Student== struct Student
+Student* stu= new Student[N]
+stu[i]->score
