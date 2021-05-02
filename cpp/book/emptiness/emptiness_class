@@ -1,5 +1,5 @@
 #include<iostream>
-using namespace std;
+using namespace std;                 虚基类适用于多派生加多继承
 
 class Base0
 {
