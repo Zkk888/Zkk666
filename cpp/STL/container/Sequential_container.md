@@ -1,6 +1,9 @@
 #顺序容器
 ***
 ##vector deque list
+###  #include\<vector>
+###  #include\<list>
+###  #include\<deque>
 ```aidl
 p1,p2 顾左不顾右
 构造函数
@@ -29,7 +32,8 @@ s.back()   获得的是首尾元素的引用
 s.push_back()          s.push_front()
 s.pop_back()           s.pop_front()
 ```
-##迭代器 S=顺序容器\<T>
+##迭代器 S=顺序容器\<T> 
+###include\<iterator>
 ```aidl
 S s1
 s1 op s2
