@@ -78,7 +78,7 @@ void Clock::showTime() const
 Clock &Clock::operator++()          //前置运算符重载
 {
       second++;
-      if(second>=60){
+      if(second>=60){                     //对数据成员进行操作
             second-= 60;
             minute++;
             if(minute>=60){
@@ -100,7 +100,7 @@ int main()
       cout<<"First Time output:";
       myClock.showTime();
       cout<<"Show myClock++ : ";
-      (myClock++).showTime();
+      (myClock++).showTime();             //对象++
       cout<<"Show++myClock: ";
       (++myClock).showTime();
       return 0;
