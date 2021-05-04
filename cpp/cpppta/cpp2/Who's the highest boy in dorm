@@ -36,7 +36,7 @@ int main()
       while(n--){                                                    // while(n--)= while(cin>>n){for(i=0;i<n;i++){}}
             cin>>Temp.No>>Temp.Nam>>Temp.Height>>Temp.Weight;
             if(Temp.Height>All[Temp.No].Height){
-                  All[Temp.No]= Temp;
+                  All[Temp.No]= Temp;                              //再设置一个数据成员控制宿舍人数
             }
       }
       for(i=0;i<100;i++){
