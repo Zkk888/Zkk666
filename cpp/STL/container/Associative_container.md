@@ -27,8 +27,8 @@ s.insert(p1,t)
 s.insert(q1,q2)
 单重关联容器：不存在相同键时才成功插入，返回pair<S::iterator,bool>
                                                     类型
-    成功则是被插入元素的迭代器和true
-    不成功则是与t键相同元素的迭代器和false
+    成功则返回被插入元素的迭代器和true
+    不成功返回与t键相同元素的迭代器和false
  ！！！pair<set<double>::iterator,bool>r = s.insert(v) !!!
       !!!  二元组访问  r.first;r.second !!!
 多重关联容器：总会成功，返回插入元素的迭代器
