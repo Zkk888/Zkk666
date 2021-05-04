@@ -2,7 +2,7 @@
 ### #include\<set>
 ### #include\<map>  
 ##只有这两个
-```
+```bash
 简单关联容器（set  multiset）:
 尖括号中的类型参数只有一个，该类型是键类型也是容器类型
 二元关联容器（map  multimap）:
@@ -16,7 +16,7 @@ eg：map<int,double>的元素类型是 pair<int,double>
 
 ##set map multimap multiset（都有键类型）
 ##(multi后可有相同键类型的元素)
-```aidl
+```bash
 构造函数
 S s(q1,q2)
 单重关联容器：具有相同键元素，只有第一个元素被加入
@@ -41,7 +41,7 @@ s.find(k)  返回键为k的元素的迭代器，不存在则返回s.end()
 ```
 ****
 ##关联容器元素顺序按键的取值升序排列
-```aidl
+```bash
 s.lower_bound(k)  返回第一个键不小于k的元素的迭代器
 s.upper_bound(k)  返回第一个键大于k的元素的迭代器
 s.equal_range(k)  :
@@ -57,7 +57,7 @@ s.count(k) 得到键为k的元素个数
 ```
 ****
 ##映射：
-```aidl
+```bash
 s.insert(pair<string,int>("CSAPP",3))
 s.insert(make_pair("CSAPP",3))  不用显式给出数据类型
 可以用[]运算符   
@@ -68,7 +68,7 @@ s.insert(make_pair("CSAPP",3))  不用显式给出数据类型
 
 ***********
 ##多重关联容器
-```aidl
+```bash
 常用：
 s.equal_range(k)
 s.count(k)

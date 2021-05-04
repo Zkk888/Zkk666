@@ -1,6 +1,6 @@
 #稀疏数组
 ***
-```bash
+```java
 package com.guigu.sparsearray;
                //输出原数组
 public class SparseArray{
@@ -20,7 +20,7 @@ public class SparseArray{
     //将二维数组转化为稀疏数组（什么是稀疏数组）
     
     
-    遍历原数组，获得sum（有多少个值）
+    //遍历原数组，获得sum（有多少个值）
     int sum= 0;
     for(int i= 0;i<11;i++){
         for(int j=0;j<11;j++){
@@ -31,7 +31,7 @@ public class SparseArray{
     }
   
   
-    用行数，列数，sum创建稀疏数组
+   // 用行数，列数，sum创建稀疏数组
     int sparseArr[][]= new int[sum+1][3];
     sparseArr[0][0]= 11;
     sparseArr[0][1]= 11;
@@ -70,11 +70,12 @@ public class SparseArray{
     }
     System.out.println();
     System.out.println("恢复后的二维数组：");
-    for(int[] row;chessArr2){
-        for(int data;row){
+    for(int[] row:chessArr2){   //注意是冒号
+        for(int data:row){
             System.out.printf("%d\t",data);
         }
         System.out.println();
     }
     }
 }
+```

@@ -4,7 +4,7 @@
 ###  #include\<vector>
 ###  #include\<list>
 ###  #include\<deque>
-```aidl
+```bash
 p1,p2 顾左不顾右
 构造函数
 S s(n,t);
@@ -24,7 +24,7 @@ s1.erase(p1,p2)    返回被删元素的下一个迭代器
 改变容器大小
 s.resize(n)
 ```
-```aidl
+```bash
 首尾元素直接访问
 s.front()
 s.back()   获得的是首尾元素的引用
@@ -34,7 +34,7 @@ s.pop_back()           s.pop_front()
 ```
 ##迭代器 S=顺序容器\<T> 
 ###include\<iterator>
-```aidl
+```bash
 S s1
 s1 op s2
 s1.begin()     s1.rbegin()
@@ -51,12 +51,12 @@ copy(s1.rbegin(),r.rend(),ostream_iterator<int>(cout,""));
  复制到输出迭代器（函数模板）中
 ```
 ##vector
-```aidl
+```bash
 s.capacity()
 s.reverse(n)  容量小于n则扩充至n，大于等于n则什么也不做
 ```
 ##list
-```aidl
+```bash
 s1.splice(p,s2)
 s1.splice(p,s2,q1)
 s1.splice(p,s2,q1,q2)
@@ -64,7 +64,7 @@ s1.splice(p,s2,q1,q2)
 ##顺序容器的容器适配器
 #stack   queue
 #priority_queue
-```aidl
+```bash
 每次弹出容器中最大的元素
 不支持比较操作，有top函数获得下一个即将被弹出对象的引用
 ```

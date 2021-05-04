@@ -1,16 +1,16 @@
 #函数对象
-```aidl
+```bash
 #include<numeric>
 accumulate(首地址，尾地址，累加初始值，累加函数)
 ```
 ****
-```aidl
+```bash
 函数调用运算符是 ()
 重载函数调用运算符   int operator()(int a,int b){return a*b;}
 ```
 ****
 ##标准库中的二元函数对象
-```aidl
+```bash
 #include<functional>
 
 plus<T>
@@ -21,7 +21,7 @@ modulus<T>
 negate<T>
 ```
 ##谓词函数对象
-```aidl
+```bash
 equal_to<T>
 not_equal_to<T>
 greater<T>
@@ -34,6 +34,6 @@ logical_not<T>
 ```
 ***
 ##算法
-```aidl
+```bash
 #include<algorithm>
 ```
