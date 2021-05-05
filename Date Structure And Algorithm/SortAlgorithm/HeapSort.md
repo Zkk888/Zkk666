@@ -54,3 +54,32 @@ public class HeapSort {
     }
 }
 ```
+##Demo
+****
+
+```java
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.SimpleTimeZone;
+
+public class HeapSort {
+    public static void main(String[] args) {
+        int[] arr = new int[8000000];
+        for (int i = 0; i < 8000000; i++) {
+            arr[i] = (int) (Math.random() * 8000000);
+        }
+        System.out.println("排序前");
+        Date date1 = new Date();
+        SimpleDateFormat simpleDateFormat= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String data1Str=simpleDateFormat(date1);
+        System.out.println("排序前的时间是= "+data1Str);
+        heapSort(arr);
+        Date date2 = new Date();
+        String data2Str= simpleDateFormat(date1);
+        System.out.println("排序后的时间是= "+data2Str);
+        //先创建一个Date对象表示当前时间
+        //再创建一个SimpleDateFormat对象按想要的格式格式化Date对象
+        //再输出即可
+    }
+}
+```
