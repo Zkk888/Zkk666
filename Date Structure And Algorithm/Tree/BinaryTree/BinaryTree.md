@@ -4,8 +4,6 @@
 ****
 
 ```java
-import java.util.HashMap;
-
 class HeroNode {
     private int no;
     private String name;
