@@ -1,1 +1,47 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class A
+{
+protected:
+      int i=0;
+public:
+      A(){}
+      A(int a):i(a){cout<<"Call A:i="<<i<<"\n";}
+      void display(){cout<<"i="<<i<<"\n";}
+};
+class A1:virtual public A
+{
+protected:
+      int j;
+public:
+      A1(int a,int b):A(a){j=b;cout<<"Call A1:i="<<i<<"\n";}
+} ;
+class A2:virtual public A
+{
+protected:
+      int k;
+public:
+    A2(int a,int b):A(a){k=b;cout<<"Call A2:i="<<i<<"\n";}
+} ;
+class A3:public A1,public A2
+{
+public:
+      A3(int a,int b,int c):A1(a,b),A2(a,c),A(a){cout<<"Call A3:i="<<i<<"\n";}   //注意的是这个多继承是虚基类
+                                                                                 //所以需要最远派生类初始化爷爷类
+                                                                                 //如果不是虚基类的话只需要初始化直接基类即可！！！
+      void disp()
+      {
+            A::display();
+           cout<<"j="<<j<<"\n";
+           cout<<"k="<<k<<"\n";
+      }
+};
+int main()
+{
+      int a,b,c;
+      cin>>a>>b>>c;
+      A3 a3(a,b,c);
+      a3.disp();
+}
 
